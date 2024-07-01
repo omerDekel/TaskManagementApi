@@ -5,11 +5,11 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementApi", "TaskManagement\TaskManagementApi.csproj", "{9EF3E990-AF67-46D0-B18E-F8D66949A1FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{847772F3-FCF8-4CA6-8A3B-DE34EC328F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.BusinessLogic", "BusinessLogic\TaskManagement.BusinessLogic.csproj", "{847772F3-FCF8-4CA6-8A3B-DE34EC328F70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectModels", "Models\DirectModels.csproj", "{0A02AA90-E4DA-4157-BD46-92F65A140BDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.DTOs", "Models\TaskManagement.DTOs.csproj", "{0A02AA90-E4DA-4157-BD46-92F65A140BDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{2A1FD64F-DFD2-43E2-B0AB-6B7BBED5E3BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.DataAccessLayer", "DataAccessLayer\TaskManagement.DataAccessLayer.csproj", "{2A1FD64F-DFD2-43E2-B0AB-6B7BBED5E3BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

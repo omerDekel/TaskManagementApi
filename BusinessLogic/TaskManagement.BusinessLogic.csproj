@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
-    <ProjectReference Include="..\Models\DirectModels.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\TaskManagement.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Models\TaskManagement.DTOs.csproj" />
   </ItemGroup>
 
 </Project>

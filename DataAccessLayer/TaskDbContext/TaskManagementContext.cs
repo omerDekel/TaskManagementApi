@@ -14,6 +14,7 @@ namespace DataAccessLayer.TaskDbContext
         public TaskManagementContext(DbContextOptions<TaskManagementContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Task> Tasks { get; set; } = null!;

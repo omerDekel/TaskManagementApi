@@ -1,6 +1,6 @@
 # Task Management Application
 
-This is a task management web application built with a .NET Core backend, and SQL Server for data storage. The application uses Entity Framework for database interactions.
+This is a task management backend web application built with a .NET Core , and SQL Server for data storage. The application uses Entity Framework for database interactions.
 
 ## Prerequisites
 
@@ -8,24 +8,22 @@ This is a task management web application built with a .NET Core backend, and SQ
 - [Node.js](https://nodejs.org/) (with npm)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-## Backend Setup
+## Setup
 
 ### 1. Clone the Repository
 
-```plaintext
 git clone https://github.com/omerDekel/TaskManagementApi.git
 cd task-management-app
-2. Set Up the .NET Core API
+### 2. Set Up the .NET Core API
 Navigate to the backend project directory:
 
-plaintext
+
 Copy code
 cd TaskManagementApi
-3. Restore Packages
-plaintext
+### 3. Restore Packages
 Copy code
 dotnet restore
-4. Create the Database
+### 4. Create the Database
 Execute the TaskDbSchema.sql script to create the database schema.
 
 Using SQL Server Management Studio (SSMS)
@@ -36,23 +34,19 @@ Execute the script by clicking the "Execute" button or pressing F5.
 Using SQLCMD
 Alternatively, you can use sqlcmd from the command line:
 
-plaintext
-Copy code
 sqlcmd -S your_server -U your_user -P your_password -i setupTaskDbSchema.sql
-5. Update Database Connection String
+### 5. Update Database Connection String
 Update the connection string in appsettings.json with your SQL Server details:
 
 json
-Copy code
 "ConnectionStrings": {
     "TaskDb": "Server=your_server;Database=TaskDb;User Id=your_user;Password=your_password;"
 }
-6. Run the API
-plaintext
-Copy code
+### 6. Run the API
+
 dotnet run
 
-Project Structure
+### Project Structure
 * TaskManagement.BusinessLogic - Responsible for managing the logic of task management including CRUD operations service interfaces and implementations.
 * TaskManagementApi/: Main API project.
   ** Controllers/: API controllers to handle HTTP requests.
@@ -62,7 +56,7 @@ Project Structure
   Using repository design pattern for abstract the interaction with the database and make it easier to switch to a different database system.
   Using Auto Mapper.
 
-API Endpoints
+### API Endpoints
 * GET /api/tasks: Retrieve all tasks.
 * GET /api/tasks/{id}: Retrieve a task by ID.
 * POST /api/tasks: Create a new task.

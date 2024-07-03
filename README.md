@@ -15,12 +15,10 @@ git clone https://github.com/omerDekel/TaskManagementApi.git
 cd task-management-app
 ### 2. Set Up the .NET Core API
 Navigate to the backend project directory:
-
-
-Copy code
+run in cmd:
 cd TaskManagementApi
 ### 3. Restore Packages
-Copy code
+run in cmd:
 dotnet restore
 ### 4. Create the Database
 Execute the TaskDbSchema.sql script to create the database schema.
@@ -42,6 +40,7 @@ json
     "TaskDb": "Server=your_server;Database=TaskDb;User Id=your_user;Password=your_password;"
 }
 ### 6. Run the API
+run in cmd:
 
 dotnet run
 

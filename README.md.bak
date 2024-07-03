@@ -47,9 +47,9 @@ dotnet run
 
 ### Project Structure
 * TaskManagement.BusinessLogic - Responsible for managing the logic of task management including CRUD operations service interfaces and implementations.
-* TaskManagementApi/: Main API project.
-  ** Controllers/: API controllers to handle HTTP requests.
-  ** MIddlewares/: Using middleware to handle exceptions globally.
+* TaskManagementApi: Main API project.
+  ** Controllers: API controllers to handle HTTP requests.
+  ** MIddlewares: Using middleware to handle exceptions globally.
 * TaskManagement.DTOs: Contains direct models for the application.
 * TaskManagement.DataAccessLayer: Contains  Entity Framework database context and configuration.
   Using repository design pattern for abstract the interaction with the database and make it easier to switch to a different database system.

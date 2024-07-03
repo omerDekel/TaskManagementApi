@@ -21,17 +21,17 @@ cd TaskManagementApi
 run in cmd:
 dotnet restore
 ### 4. Create the Database
-Execute the TaskDbSchema.sql script to create the database schema.
+Execute the setupTaskDbSchema.sql script to create the database schema.
 
 Using SQL Server Management Studio (SSMS)
 Open SSMS and connect to your SQL Server.
 Open a new query window.
-Copy and paste the contents of setupTaskDbSchema.sql into the query window.
+Copy and paste the contents of setupsetupTaskDbSchema.sql into the query window.
 Execute the script by clicking the "Execute" button or pressing F5.
 Using SQLCMD
 Alternatively, you can use sqlcmd from the command line:
 
-sqlcmd -S your_server -U your_user -P your_password -i setupTaskDbSchema.sql
+sqlcmd -S your_server -U your_user -P your_password -i setupsetupTaskDbSchema.sql
 ### 5. Update Database Connection String
 Update the connection string in appsettings.json with your SQL Server details:
 
@@ -43,6 +43,16 @@ json
 run in cmd:
 
 dotnet run
+
+### Testing
+Navigate to the test project directory:
+
+run:
+cd ../TaskManagementApi.Tests
+
+Run the tests:
+dotnet test
+
 
 ### Project Structure
 * TaskManagement.BusinessLogic - Responsible for managing the logic of task management including CRUD operations service interfaces and implementations.

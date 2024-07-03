@@ -5,7 +5,6 @@ This is a task management backend web application built with a .NET Core , and S
 ## Prerequisites
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [Node.js](https://nodejs.org/) (with npm)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 ## Setup
@@ -39,13 +38,11 @@ sqlcmd -S your_server -U your_user -P your_password -i setupTaskDbSchema.sql
 Update the connection string in appsettings.json with your SQL Server details:
 
 json
-Copy code
 "ConnectionStrings": {
     "TaskDb": "Server=your_server;Database=TaskDb;User Id=your_user;Password=your_password;"
 }
 ### 6. Run the API
-plaintext
-Copy code
+
 dotnet run
 
 ### Project Structure

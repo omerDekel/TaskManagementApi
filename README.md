@@ -5,7 +5,6 @@ This is a task management backend web application built with a .NET Core , and S
 ## Prerequisites
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [Node.js](https://nodejs.org/) (with npm)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 ## Setup
@@ -48,9 +47,9 @@ dotnet run
 
 ### Project Structure
 * TaskManagement.BusinessLogic - Responsible for managing the logic of task management including CRUD operations service interfaces and implementations.
-* TaskManagementApi/: Main API project.
-  ** Controllers/: API controllers to handle HTTP requests.
-  ** MIddlewares/: Using middleware to handle exceptions globally.
+* TaskManagementApi: Main API project.
+  ** Controllers: API controllers to handle HTTP requests.
+  ** MIddlewares: Using middleware to handle exceptions globally.
 * TaskManagement.DTOs: Contains direct models for the application.
 * TaskManagement.DataAccessLayer: Contains  Entity Framework database context and configuration.
   Using repository design pattern for abstract the interaction with the database and make it easier to switch to a different database system.

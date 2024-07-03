@@ -1,6 +1,6 @@
 # Task Management Application
 
-This is a task management web application built with a .NET Core backend, and SQL Server for data storage. The application uses Entity Framework for database interactions.
+This is a task management web application built with a .NET Core backend, a React frontend, and SQL Server for data storage. The application uses Entity Framework for database interactions and Redux for state management in React.
 
 ## Prerequisites
 
@@ -51,6 +51,7 @@ Copy code
 plaintext
 Copy code
 dotnet run
+The API should now be running at https://localhost:5001 or http://localhost:5000.
 
 Project Structure
 * TaskManagement.BusinessLogic - Responsible for managing the logic of task management including CRUD operations service interfaces and implementations.

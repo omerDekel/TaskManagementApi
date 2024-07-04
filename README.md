@@ -4,8 +4,14 @@ This is a task management backend web application built with a .NET Core , and S
 
 ## Prerequisites
 
-- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+## Technologies Used
+- **Backend**: .NET 6.0
+- **Database**: SQL Server
+- **ORM**: Entity Framework Core
+- **Logging**: Microsoft.Extensions.Logging
 
 ## Setup
 

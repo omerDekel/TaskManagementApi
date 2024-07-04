@@ -43,7 +43,7 @@ Update the connection string in appsettings.json with your SQL Server details:
 
 json
 "ConnectionStrings": {
-    "TaskDb": "Server=your_server;Database=TaskDb;User Id=your_user;Password=your_password;"
+    "TaskManagementContext": "Server=your_server;Database=TaskDb;User Id=your_user;Password=your_password;"
 }
 ### 6. Run the API
 run in cmd:

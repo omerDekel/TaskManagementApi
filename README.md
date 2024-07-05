@@ -18,7 +18,7 @@ This is a task management backend web application built with a .NET Core , and S
 ### 1. Clone the Repository
 
 git clone https://github.com/omerDekel/TaskManagementApi.git
-cd task-management-app
+
 ### 2. Set Up the .NET Core API
 Navigate to the backend project directory:
 run in cmd:

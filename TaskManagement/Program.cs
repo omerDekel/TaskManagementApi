@@ -12,29 +12,7 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Configure DbContext
-builder.Services.AddDbContext<TaskManagementContext>(opt =>
-     opt.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagementContext")));
-
-
-// Add AutoMapper
-//builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-builder.Services.AddAutoMapper(typeof(MongoMappingProfile));
-
-//repositories
-//builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-//builder.Services.AddSingleton<ITaskRepository>(new FileTaskRepository("tasks.json"));
-builder.Services.AddSingleton<ITaskRepository>(provider =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    var connectionString = configuration["MongoDB:ConnectionString"];
-    var databaseName = configuration["MongoDB:DatabaseName"];
-    var collectionName = configuration["MongoDB:CollectionName"];
-    var mapper = provider.GetRequiredService<IMapper>(); // Resolve IMapper from DI
-
-    return new MongoTaskRepository(connectionString, databaseName, collectionName, mapper);
-});
+SetRepository();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -81,3 +59,37 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+void SetRepository()
+{
+    var repositorySettings = builder.Configuration.GetSection("RepositorySettings");
+    var repositoryType = repositorySettings["Type"];
+
+    switch (repositoryType)
+    {
+        case "SQL":
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+            var sqlConnectionString = repositorySettings.GetSection("SQL")["ConnectionString"];
+            builder.Services.AddDbContext<TaskManagementContext>(options =>
+                options.UseSqlServer(sqlConnectionString));
+            builder.Services.AddScoped<ITaskRepository, SqlTaskRepository>();
+            break;
+
+        case "MongoDB":            
+            builder.Services.AddAutoMapper(typeof(MongoMappingProfile));
+            var mongoSettings = repositorySettings.GetSection("MongoDB");
+            var mongoConnectionString = mongoSettings["ConnectionString"];
+            var databaseName = mongoSettings["DatabaseName"];
+            var collectionName = mongoSettings["CollectionName"];
+            builder.Services.AddSingleton<ITaskRepository>(provider =>
+                new MongoTaskRepository(mongoConnectionString, databaseName, collectionName, provider.GetRequiredService<IMapper>()));
+            break;
+
+        case "File":
+            var filePath = repositorySettings.GetSection("File")["FilePath"];
+            builder.Services.AddSingleton<ITaskRepository>(new FileTaskRepository(filePath));
+            break;
+
+        default:
+            throw new InvalidOperationException($"Unsupported repository type: {repositoryType}");
+    }
+}

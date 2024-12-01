@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaskManagement.DataAccessLayer.Repositories;
+using TaskManagement.DataAccessLayer.Contracts;
 
 namespace TaskManagementApi.Tests
 {

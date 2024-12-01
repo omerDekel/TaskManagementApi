@@ -33,7 +33,7 @@ namespace TaskManagementApi.Middleware
 
             var response = new
             {
-                StatusCode = context.Response.StatusCode,
+                context.Response.StatusCode,
                 Message = "Internal Server Error. Please try again later.",
                 Detailed = exception.Message
             };

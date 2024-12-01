@@ -4,8 +4,8 @@ using DTOs.Entities;
 using DTOs.Responses;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using TaskManagement.DataAccessLayer.Repositories;
-using Task = DataAccessLayer.TaskDbContext.Task;
+using TaskManagement.DataAccessLayer.Contracts;
+using Task = DataAccessLayer.TaskDbContext.ToDoTask;
 
 namespace BusinessLogic.Services
 {
@@ -51,7 +51,8 @@ namespace BusinessLogic.Services
         public async Task<IEnumerable<ToDoTaskDto>> GetTasksAsync()
         {
             _logger.LogInformation("Fetching all tasks");
-            return await _taskRepository.GetAllAsync();
+            var result = await _taskRepository.GetAllAsync();
+            return result;
         }
 
         public async Task<bool> UpdateTaskAsync(ToDoTaskDto task)

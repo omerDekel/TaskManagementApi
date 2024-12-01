@@ -18,7 +18,7 @@ namespace DataAccessLayer.TaskDbContext
 
         }
 
-        public virtual DbSet<Task> Tasks { get; set; } = null!;
+        public virtual DbSet<ToDoTask> Tasks { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,7 +30,7 @@ namespace DataAccessLayer.TaskDbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Task>(entity =>
+            modelBuilder.Entity<ToDoTask>(entity =>
             {
                 entity.Property(e => e.FinishDate).HasColumnType("datetime");
 

@@ -5,7 +5,7 @@ using DataAccessLayer.TaskDbContext;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task = DataAccessLayer.TaskDbContext.Task;
+using ToDoTask = DataAccessLayer.TaskDbContext.ToDoTask;
 
 namespace TaskManagement.DataAccessLayer.Mappings
 {
@@ -13,7 +13,7 @@ namespace TaskManagement.DataAccessLayer.Mappings
     {
         public AutoMapperProfile()
         {
-            CreateMap<Task, ToDoTaskDto>().ReverseMap();
+            CreateMap<ToDoTask, ToDoTaskDto>().ReverseMap();
         }
     }
 }

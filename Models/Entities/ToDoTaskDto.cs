@@ -7,7 +7,7 @@ namespace DTOs.Entities
     public class ToDoTaskDto
     {
         [BsonId]
-        public ObjectId? _id { get; set; } // MongoDB's ObjectId
+        public ObjectId? PersistentId { get; set; } // MongoDB's ObjectId
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }

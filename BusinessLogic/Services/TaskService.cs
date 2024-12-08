@@ -5,7 +5,7 @@ using DTOs.Responses;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using TaskManagement.DataAccessLayer.Contracts;
-using Task = DataAccessLayer.TaskDbContext.ToDoTask;
+using Task = DataAccessLayer.TaskDbContext.SqlToDoTask;
 
 namespace BusinessLogic.Services
 {

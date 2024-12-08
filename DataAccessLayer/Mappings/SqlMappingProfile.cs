@@ -5,15 +5,15 @@ using DataAccessLayer.TaskDbContext;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoTask = DataAccessLayer.TaskDbContext.ToDoTask;
+using SqlToDoTask = DataAccessLayer.TaskDbContext.SqlToDoTask;
 
 namespace TaskManagement.DataAccessLayer.Mappings
 {
-    public class AutoMapperProfile : Profile
+    public class SqlMappingProfile : Profile
     {
-        public AutoMapperProfile()
+        public SqlMappingProfile()
         {
-            CreateMap<ToDoTask, ToDoTaskDto>().ReverseMap();
+            CreateMap<SqlToDoTask, ToDoTaskDto>().ReverseMap();
         }
     }
 }

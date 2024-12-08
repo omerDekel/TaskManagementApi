@@ -41,8 +41,12 @@ namespace TaskManagement.DataAccessLayer.Repositories
 
         public async Task<bool> AddAsync(ToDoTaskDto task)
         {
+            var mongoId = ObjectId.GenerateNewId().ToString();
+            task.Id = ConvertObjectIdToInt(mongoId);
+
             var mongoTask = _mapper.Map<MongoToDoTask>(task);
-            mongoTask._id = ObjectId.GenerateNewId().ToString();
+            mongoTask._id = mongoId;
+
             await _collection.InsertOneAsync(mongoTask);
             return true;
         }
@@ -54,9 +58,9 @@ namespace TaskManagement.DataAccessLayer.Repositories
             {
                 //Get the MongoId from db
                 var taskDto = await GetByIdAsync(task.Id);
-                if (taskDto != null && taskDto._id != null)
+                if (taskDto != null && taskDto.PersistentId != null)
                 {
-                    mongoTask._id = taskDto._id.ToString();
+                    mongoTask._id = taskDto.PersistentId.ToString();
                 }
             }
             var result = await _collection.ReplaceOneAsync(x => x.Id == mongoTask.Id, mongoTask);
@@ -68,6 +72,10 @@ namespace TaskManagement.DataAccessLayer.Repositories
             var result = await _collection.DeleteOneAsync(x => x.Id == id);
 
             return result.IsAcknowledged && result.DeletedCount > 0;
+        }
+        private int ConvertObjectIdToInt(string objectId)
+        {
+            return int.Parse(objectId.Substring(0, 8), System.Globalization.NumberStyles.HexNumber);
         }
     }
 }

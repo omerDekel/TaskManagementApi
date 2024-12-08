@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DataAccessLayer.TaskDbContext
 {
     //EF Object
-    public partial class ToDoTask
+    public partial class SqlToDoTask
     {
         public int Id { get; set; }
         public string? Title { get; set; }

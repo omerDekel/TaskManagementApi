@@ -67,7 +67,7 @@ void SetRepository()
     switch (repositoryType)
     {
         case "SQL":
-            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+            builder.Services.AddAutoMapper(typeof(SqlMappingProfile));
             var sqlConnectionString = repositorySettings.GetSection("SQL")["ConnectionString"];
             builder.Services.AddDbContext<TaskManagementContext>(options =>
                 options.UseSqlServer(sqlConnectionString));

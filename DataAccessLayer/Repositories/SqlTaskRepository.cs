@@ -3,13 +3,8 @@ using DataAccessLayer.TaskDbContext;
 using DTOs.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskManagement.DataAccessLayer.Contracts;
-using ToDoTask = DataAccessLayer.TaskDbContext.ToDoTask;
+using SqlToDoTask = DataAccessLayer.TaskDbContext.SqlToDoTask;
 
 namespace TaskManagement.DataAccessLayer.Repositories
 {
@@ -30,7 +25,7 @@ namespace TaskManagement.DataAccessLayer.Repositories
         public async System.Threading.Tasks.Task<bool> AddAsync(ToDoTaskDto taskDto)
         {
             _logger.LogInformation("Adding a new task to the database");
-            var task = _mapper.Map<ToDoTask>(taskDto);
+            var task = _mapper.Map<SqlToDoTask>(taskDto);
             try
             {
                 await _context.Tasks.AddAsync(task);
@@ -102,7 +97,7 @@ namespace TaskManagement.DataAccessLayer.Repositories
         public async System.Threading.Tasks.Task<bool> UpdateAsync(ToDoTaskDto taskDto)
         {
             _logger.LogInformation("Updating task with id {TaskId} in the database", taskDto.Id);
-            var task = _mapper.Map<ToDoTask>(taskDto);
+            var task = _mapper.Map<SqlToDoTask>(taskDto);
             try
             {
                 _context.Tasks.Update(task);

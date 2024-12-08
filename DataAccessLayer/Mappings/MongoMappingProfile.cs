@@ -15,10 +15,11 @@ namespace TaskManagement.DataAccessLayer.Mappings
         public MongoMappingProfile()
         {
             CreateMap<MongoToDoTask, ToDoTaskDto>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ReverseMap()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest._id, opt => opt.Ignore()); // Use MongoDB's automatic ObjectId
+           .ForMember(dest => dest.PersistentId, opt => opt.MapFrom(src => src._id)) // Map _id to PersistentId
+           .ReverseMap()
+           .ForMember(dest => dest._id, opt => opt.MapFrom(src => src.PersistentId)) // Map PersistentId back to _id
+           .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id)); // Explicit for clarity, though optional
+
         }
     }
 }
